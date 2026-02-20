@@ -30,7 +30,33 @@ class MyApp extends StatelessWidget{
             )
           ],
         ),
-        body: Text("My App"),
+        body:
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  "assets/img.png",
+                  width: 200,
+                ),
+                Text(
+                  "My App is a very good example for testing",
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFFF22C36),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+              ],
+            )
+
+
+          // Image.network(
+          //     "https://cdn.britannica.com/55/122155-050-56389FCC/Bayon-temple-Angkor-Thom-Cambodia.jpg")
+
+
+
+
       ),
     );
   }
