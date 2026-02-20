@@ -15,17 +15,9 @@ class HomePage extends StatelessWidget {
           title: Text("Kimhy App", style: TextStyle(color: Colors.white),),
           backgroundColor: Colors.blue,
           actions: [
-            InkWell(
-              onTap: (){
-                Navigator.push(context,
-                    MaterialPageRoute(
-                        builder: (context)=>DetailPage())
-                );
-              },
-              child: Container(
-                  margin: EdgeInsets.only(right: 15),
-                  child: Icon(Icons.notifications)
-              ),
+            Container(
+                margin: EdgeInsets.only(right: 15),
+                child: Icon(Icons.notifications)
             ),
             Container(
                 margin: EdgeInsets.only(right: 15),
@@ -57,7 +49,7 @@ class HomePage extends StatelessWidget {
 
               Image.asset(
                 "assets/img.png",
-                width: 200,
+                width: 400,
               ),
               Text(
                 "My App is a very good example for testing",
