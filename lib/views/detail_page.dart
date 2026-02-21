@@ -1,8 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class DetailPage extends StatelessWidget {
+class DetailPage extends StatefulWidget {
 
+  @override
+  State<DetailPage> createState() => _DetailPageState();
+}
+class _DetailPageState extends State<DetailPage> {
   var listData=[
     {
       "id":"001",
@@ -21,6 +25,12 @@ class DetailPage extends StatelessWidget {
     }
   ];
 
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    print("=============Dispose");
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

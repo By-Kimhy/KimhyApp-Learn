@@ -2,9 +2,31 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/views/detail_page.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  bool status=false;
+
+  // initSate mostly use to request API
+  @override
+  void initState() {
+    print("---------------Initstate");
+    super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    print("---------------didChangeDependencies");
+    super.didChangeDependencies();
+  }
+
   @override
   Widget build(BuildContext context) {
+    print("-----------Build");
     return Scaffold(
         drawer: Drawer(
           width: 150,
@@ -47,9 +69,23 @@ class HomePage extends StatelessWidget {
                 ),
               ),
 
-              Image.asset(
-                "assets/img.png",
-                width: 400,
+              Stack(
+                children: [
+                  Image.asset(
+                    "assets/img.png",
+                    width: 400,
+                  ),
+                  Container(
+                    width: 300,height: 100,color: Colors.red,
+                  ),
+                  Positioned(
+                    bottom: 10,
+                    right: 20,
+                    child: Text("Angkor Wat",
+                      style: TextStyle(color: Colors.white,fontSize: 50),
+                    ),
+                  )
+                ],
               ),
               Text(
                 "My App is a very good example for testing",
@@ -60,10 +96,18 @@ class HomePage extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
-              Icon(
-                Icons.download,
-                size: 50,
-                color: Colors.green,
+              InkWell(
+                onTap: (){
+                  setState(() {
+                    status = !status;
+                  });
+                  print("Status : $status");
+                },
+                child: Icon(
+                  Icons.download,
+                  size: 100,
+                  color: status ? Colors.green : Colors.pink,
+                ),
               ),
               ElevatedButton(onPressed: (){},
                   child: Text("Login")),
