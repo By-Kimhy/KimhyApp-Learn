@@ -22,6 +22,11 @@ class _DetailPageState extends State<DetailPage> {
       "id":"003",
       "name":"lita",
       "address":"KPC"
+    },
+    {
+      "id":"004",
+      "name":"Liitaa",
+      "address":"KPC"
     }
   ];
 
@@ -45,20 +50,32 @@ class _DetailPageState extends State<DetailPage> {
             child: Icon(Icons.arrow_back_ios)),
             iconTheme: IconThemeData(color: Colors.white),
       ),
-      body: ListView.builder(
-        itemCount: listData.length,
-          itemBuilder: (BuildContext context,int index){
-            return itemUser(listData[index]);
-          }
-      )
+      body:
+        GridView.builder(
+            itemCount: listData.length,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+              mainAxisSpacing: 5,
+            ),
+            itemBuilder: (context,int index){
+              return itemUser(listData[index]);
+            }
+
+        )
+      // ListView.builder(
+      //   itemCount: listData.length,
+      //     itemBuilder: (BuildContext context,int index){
+      //       return itemUser(listData[index]);
+      //     }
+      // )
     );
   }
 }
 
 Widget itemUser(var data){
   return Container(
-    margin: EdgeInsets.only(left: 10,right: 10,top: 10),
-    height: 100,
+    margin: EdgeInsets.only(left: 5,right: 5,top: 5),
+    height: 20,
     color: Colors.blue,
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
